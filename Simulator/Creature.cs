@@ -51,6 +51,21 @@
             this.level = this.level < 10 ? ++this.level : 10;
         }
 
-       
+        public void Go(Direction direction)
+        {
+            string directionLower = direction.ToString().ToLower();
+            Console.WriteLine($"{name} goes to {directionLower}");
+        }
+        public void Go(Direction[] directions)
+        {
+            foreach (var direction in directions) Go(direction);
+        }
+        public void Go(string directions)
+        {
+            Direction[] directionParsed = DirectionParser.Parse(directions);
+            Go(directionParsed);
+        }
+
+
     }
 }
