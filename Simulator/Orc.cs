@@ -1,4 +1,7 @@
-﻿namespace Simulator;
+﻿using System;
+using System.Diagnostics.Metrics;
+
+namespace Simulator;
 public class Orc : Creature
 {
     private int _rage;
@@ -6,19 +9,21 @@ public class Orc : Creature
     public int Rage
     {
         get => _rage;
-        set
+        init
         {
-            if (value < 0) _rage = 0;
-            else if (value > 10) _rage = 10;
-            else _rage = value;
+            _rage = Validator.Limiter(value, 0, 10);
         }
     }
     public void Hunt()
     {
-        Console.WriteLine($"{Name} is hunting.");
         _huntCount++;
-        if (_huntCount % 2 == 0) { Rage++; }
+        Console.WriteLine($"{Name}is hunting.");
+        if (_huntCount % 2 == 0)
+        {
+            if (_rage < 10) _rage++;
+        }
     }
+
     public Orc() : base() { }
     public Orc(string name, int level = 1, int rage = 1)
         : base(name, level)
@@ -32,5 +37,12 @@ public class Orc : Creature
     public override int Power
     {
         get { return 7 * Level + 3 * Rage; }
+    }
+    public override string Info
+    {
+        get
+        {
+            return $"{Name}[{Level}][{Rage}]";
+        }
     }
 }

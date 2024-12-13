@@ -10,7 +10,7 @@ internal class Program
          * Lab4a();
          */
     }
-    static void Lab4a()
+    /*static void Lab4a()
     {
         Console.WriteLine("HUNT TEST\n");
         var o = new Orc() { Name = "Gorbag", Rage = 7 };
@@ -41,5 +41,5 @@ internal class Program
         {
             Console.WriteLine($"{creature.Name,-15}: {creature.Power}");
         }
-    }
+    }*/
 }
