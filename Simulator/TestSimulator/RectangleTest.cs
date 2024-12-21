@@ -1,6 +1,6 @@
 ﻿using Simulator;
 using System.Numerics;
-using Xunit.Sdk;
+using Xunit;
 namespace TestSimulator
 {
     public class RectangleTest
