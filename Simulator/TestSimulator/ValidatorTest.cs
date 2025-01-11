@@ -24,6 +24,8 @@ public class ValidatorTest
     [InlineData("", 5, 10, '$', "$$$$$")]
     [InlineData("   ", 5, 7, '*', "*****")]
     [InlineData("Hello World", 5, 11, '*', "Hello World")]
+    [InlineData("A                  B", 5, 10, '*', "A****")]
+
 
     public void Shortener_ShouldCorrectlyShortenOrPadString
         (string input, int min, int max, char placeholder, string expected)
