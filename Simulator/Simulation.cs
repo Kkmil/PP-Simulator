@@ -1,6 +1,8 @@
 ﻿using Simulator.Maps;
+using Simulator;
+using System.Runtime.CompilerServices;
 
-namespace Simulator;
+namespace Simulation;
 
 public class Simulation
 {
@@ -88,7 +90,7 @@ public class Simulation
 
         var parsedDirections = DirectionParser.Parse(moveChar.ToString());
 
-        if (parsedDirections.Count == 0)
+        if (parsedDirections.Any())
         {
             throw new InvalidOperationException($"Nieprawidłowy znak '{moveChar}'. Możliwe kierunki: 'U', 'D', 'L', 'R'.");
         }
