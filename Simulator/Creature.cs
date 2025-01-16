@@ -1,55 +1,74 @@
-﻿namespace Simulator
+﻿using Simulator.Maps;
+
+namespace Simulator
 {
-    public abstract class Creature
+    public abstract class Creature : IMappable
     {
         private string name = "Unknown";
-        private int level = 1;
         public string Name
         {
             get { return name; }
-            init => name = Validator.Shortener(value, 3, 25, '#');
+            init
+            {
+                name = Validator.Shortener(value, 3, 25, '#');
+            }
         }
+
+        private int level = 1;
         public int Level
         {
             get { return level; }
-            init => level = Validator.Limiter(value, 1, 10);
+            set
+            {
+                level = Validator.Limiter(value, 1, 10);
+            }
+        }
+
+        public void Upgrade()
+        {
+            if (Level < 10)
+                Level++;
         }
 
         public Creature(string name, int level = 1)
         {
-            Level = level;
             Name = name;
+            Level = level;
         }
 
         public Creature() { }
 
-        public abstract void SayHi();
-
         public abstract string Info { get; }
+        public abstract string Greeting();
+        public abstract int Power { get; }
+        public abstract char Symbol { get; }
+        public Map? CurrentMap { get; set; }
+        public Point CurrentPosition { get; set; }
 
-        public void Upgrade()
+        public string Go(Direction direction)
         {
-            this.level = this.level < 10 ? ++this.level : 10;
+            if (CurrentMap == null)
+                throw new InvalidOperationException("Creature is not assigned to a map.");
+
+            var newPosition = CurrentPosition.Next(direction);
+
+            if (CurrentMap.Exist(newPosition))
+            {
+                CurrentMap.Move(this, CurrentPosition, newPosition);
+                CurrentPosition = newPosition;
+                return $"Moved {direction.ToString().ToLower()} to {newPosition}.";
+            }
+
+            return "Cannot move outside the map boundaries.";
         }
 
-        public void Go(Direction direction)
+        public void AssignMap(Map map, Point startPosition)
         {
-            string directionLower = direction.ToString().ToLower();
-            Console.WriteLine($"{name} goes to {directionLower}");
-        }
-        public void Go(Direction[] directions)
-        {
-            foreach (var direction in directions) Go(direction);
-        }
-        public void Go(string directions)
-        {
-            Direction[] directionParsed = DirectionParser.Parse(directions);
-            Go(directionParsed);
+            CurrentMap = map;
+            CurrentPosition = startPosition;
+            map.Add(this, startPosition);
         }
 
-        public abstract int Power
-        { get; }
-
-
+        public override string ToString() => $"{GetType().Name.ToUpper()}: {Info}";
     }
 }

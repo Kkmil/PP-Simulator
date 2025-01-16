@@ -1,34 +1,32 @@
 ﻿namespace Simulator;
 
-public class Validator
+public static class Validator
 {
-    public static int Limiter(int value, int min, int max)
-    {
-        if (value < min) return min;
-        if (value > max) return max;
+    public static int Limiter(int value, int min, int max) 
+    { 
+        if (value < min)
+            value = min;
+        if (value > max)
+            value = max;
         return value;
     }
 
-    public static string 
+    public static string
         Shortener(string value, int min, int max, char placeholder)
     {
-        var valueTrimmed = value.Trim();
+        value = value.Trim();
 
-
-        if (valueTrimmed.Length > max)
+        if (value.Length < min)
+            value = value.PadRight(min, placeholder);
+        else if (value.Length > max)
+            value = value.Substring(0, max).Trim();
+        if (value.Length < min)
         {
-            valueTrimmed = valueTrimmed.Substring(0, max);
-            valueTrimmed = valueTrimmed.Trim();
+            return value.PadRight(min, placeholder);
         }
-        if (valueTrimmed.Length < min)
+        else
         {
-            valueTrimmed = valueTrimmed.PadRight(min, placeholder);
+            return char.ToUpper(value[0]) + value.Substring(1);
         }
-        if (!char.IsUpper(valueTrimmed[0]))
-        {
-            valueTrimmed = char.ToUpper(valueTrimmed[0]) + valueTrimmed.Substring(1);
-        }
-
-        return valueTrimmed;
     }
 }

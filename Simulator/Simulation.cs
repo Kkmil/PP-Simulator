@@ -1,104 +1,78 @@
 ﻿using Simulator.Maps;
-using Simulator;
-using System.Runtime.CompilerServices;
 
-namespace Simulation;
+namespace Simulator;
 
 public class Simulation
 {
-    private int index = 0;
-    /// <summary>
-    /// Simulation's map.
-    /// </summary>
+    
     public Map Map { get; }
 
-    /// <summary>
-    /// Creatures moving on the map.
-    /// </summary>
-    public List<Creature> Creatures { get; }
+    
+    public List<IMappable> Mappables { get; }
 
-    /// <summary>
-    /// Starting positions of creatures.
-    /// </summary>
+    
     public List<Point> Positions { get; }
 
-    /// <summary>
-    /// Cyclic list of creatures moves. 
-    /// Bad moves are ignored - use DirectionParser.
-    /// First move is for first creature, second for second and so on.
-    /// When all creatures make moves, 
-    /// next move is again for first creature and so on.
-    /// </summary>
+    
     public string Moves { get; }
 
-    /// <summary>
-    /// Has all moves been done?
-    /// </summary>
+    
     public bool Finished = false;
 
-    /// <summary>
-    /// Creature which will be moving current turn.
-    /// </summary>
-    public Creature CurrentCreature
-    {
-        get => Creatures[index % Creatures.Count];
-    }
-    /// <summary>
-    /// Lowercase name of direction which will be used in current turn.
-    /// </summary>
-    public string CurrentMoveName { 
-        get => DirectionParser.Parse(Moves[index % Moves.Length].ToString())[0].ToString().ToLower(); }
+    
+    public IMappable CurrentMappable { get { return Mappables[moveIndex % Mappables.Count]; } }
 
-    /// <summary>
-    /// Simulation constructor.
-    /// Throw errors:
-    /// if creatures' list is empty,
-    /// if number of creatures differs from 
-    /// number of starting positions.
-    /// </summary>
-    public Simulation(Map map, List<Creature> creatures,
+   
+    public string CurrentMoveName { get { return Moves[moveIndex % Moves.Length].ToString().ToLower(); } }
+
+   
+    public Simulation(Map map, List<IMappable> mappables,
         List<Point> positions, string moves)
     {
-        if (creatures == null || creatures.Count == 0)
+        if (mappables.Count == 0)
         {
-            throw new ArgumentException("Lista stworów nie może być pusta", nameof(creatures));
+            throw new ArgumentException("Objects list can't be empty.");
         }
 
-        if (creatures.Count != positions.Count)
+        if (mappables.Count != positions.Count)
         {
-            throw new ArgumentException("Liczba stworów musi odpowiadac liczbie pozycji");
+            throw new ArgumentException("The number of objects must match the number of positions.");
         }
 
-        Map = map ?? throw new ArgumentNullException(nameof(map));
-        Creatures = creatures;
+        Map = map;
+        Mappables = mappables;
         Positions = positions;
-        Moves = moves ?? throw new ArgumentNullException(nameof(moves));
+        Moves = moves;
+
+        // Assign the map and initial positions to each mappable object
+        for (int i = 0; i < mappables.Count; i++)
+        {
+            mappables[i].AssignMap(map, positions[i]);
         }
+    }
+
+    private int moveIndex = 0;
 
     /// <summary>
-    /// Makes one move of current creature in current direction.
+    /// Makes one move of the current object in the current direction.
     /// Throw error if simulation is finished.
     /// </summary>
-    public void Turn() {
+    public void Turn()
+    {
         if (Finished)
         {
-            throw new InvalidOperationException("Koniec symulacji");
+            throw new InvalidOperationException("Simulation has already finished.");
         }
 
+        // Get the direction from the moves list
+        var direction = DirectionParser.Parse(CurrentMoveName)[0];
 
-        char moveChar= Moves[index % Moves.Length];
+        // Move the current object
+        CurrentMappable.Go(direction);
 
-        var parsedDirections = DirectionParser.Parse(moveChar.ToString());
-
-        if (parsedDirections.Any())
-        {
-            throw new InvalidOperationException($"Nieprawidłowy znak '{moveChar}'. Możliwe kierunki: 'U', 'D', 'L', 'R'.");
-        }
-
-        _ = parsedDirections[0];
-        index++;
-
-        if (index >= Moves.Length)
+        // If all moves have been performed, finish the simulation
+        moveIndex++;
+        if (moveIndex >= Moves.Length)
         {
             Finished = true;
         }

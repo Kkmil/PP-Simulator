@@ -2,29 +2,41 @@
 
 public static class DirectionParser
 {
-    public static Direction[] Parse(string input)
+    public static List<Direction> Parse(string input)
     {
-        List<Direction> directions = new List<Direction>();
-        input = input.ToLower();
-        for (int i = 0; i < input.Length; i++)
+        var directions = new List<Direction>();
+
+        foreach (var chr in input.ToUpper())
         {
-            if (input[i].ToString() == "u")
+            if (chr == 'U')
             {
                 directions.Add(Direction.Up);
             }
-            else if (input[i].ToString() == "r")
+            else if (chr == 'R')
             {
                 directions.Add(Direction.Right);
             }
-            else if (input[i].ToString() == "d")
+            else if (chr == 'D')
             {
                 directions.Add(Direction.Down);
             }
-            else if (input[i].ToString() == "l")
+            else if (chr == 'L')
             {
                 directions.Add(Direction.Left);
             }
         }
-        return directions.ToArray();
+        return directions;
+    }
+    public static string FullDirectionName(Direction direction)
+    {
+        return direction switch
+        {
+            Direction.Up => "up",
+            Direction.Right => "right",
+            Direction.Down => "down",
+            Direction.Left => "left",
+            _ => "unknown"
+        };
     }
 }
+

@@ -1,88 +1,50 @@
-﻿using Simulator.Maps;
+﻿using System.Text;
+using Simulator;
+using Simulator.Maps;
 
-namespace Simulator;
+namespace SimConsole;
 
-public class Program
+internal class Program
 {
-    private static void Main(string[] args)
+    static void Main(string[] args)
     {
-        /*
-        Lab5a();
-        Lab5b();
-        */
+        Console.OutputEncoding = Encoding.UTF8;
 
+        SmallTorusMap map = new(8, 6);
+
+        List<IMappable> mappables = new()
+        {
+            new Orc("Gorbag"),
+            new Elf("Elandor"),
+            new Animals { Description = "Rabbits", Size = 5 },
+            new Birds { Description = "Eagles", CanFly = true, Size = 5 },
+            new Birds { Description = "Ostriches", CanFly = false, Size = 3 }
+        };
+
+        List<Point> positions = new()
+        {
+            new(2, 2),
+            new(3, 1),
+            new(3, 3),
+            new(4, 4),
+            new(5, 5)  
+        };
+
+        string moves = "dlrludllurdlurrr";
+
+        Simulation simulation = new(map, mappables, positions, moves);
+        SimulationHistory history = new(simulation);
+
+        LogVisualizer logVisualizer = new(history);
+
+        for (int i = 0; i < history.TurnLogs.Count; i++)
+        {
+            logVisualizer.Draw(i);
+            Console.WriteLine("\nPress any key to proceed to the next turn...");
+            Console.ReadKey();
+        }
+
+        Console.WriteLine("Visualization complete. Press any key to exit.");
+        Console.ReadKey();
     }
-
-    static void Lab5a()
-    {
-        try
-        {
-            Rectangle rect1 = new Rectangle(5, 5, 1, 1);
-            Console.WriteLine("Utworzono pomyślnie: " + rect1.ToString());
-        }
-        catch (ArgumentException ex) { Console.WriteLine(ex.Message); }
-
-        try
-        {
-            Rectangle rect2 = new Rectangle(2, 2, 2, 6);
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine("Błąd : " + ex.Message);
-        }
-
-        try
-        {
-
-            Point p1 = new Point(1, 1);
-            Point p2 = new Point(4, 5);
-            Rectangle rect3 = new Rectangle(p1, p2);
-            Console.WriteLine("Prostokąt utworzony z punktów: " + rect3.ToString());
-
-            Point pointToCheck = new Point(3, 3);
-            Console.WriteLine($"Czy {rect3} zawiera punkt {pointToCheck}? " + rect3.Contains(pointToCheck));
-
-            Point pointOutSide = new Point(5, 6);
-            Console.WriteLine($"Czy {rect3} zawiera punkt {pointOutSide}? " + rect3.Contains(pointOutSide));
-        }
-        catch ( ArgumentException ex )
-        {
-            Console.WriteLine("Błąd: " + ex.Message);
-        }
-    }
-
-    static void Lab5b()
-    {
-        try
-        {
-            SmallSquareMap map = new SmallSquareMap(8);
-            Console.WriteLine("Mapa o rozmiarze: " + map.Size);
-        }
-        catch (ArgumentOutOfRangeException ex)
-        {
-            Console.WriteLine("Błąd przy tworzeniu mapy: " + ex.Message);
-        }
-
-        try
-        {
-            SmallSquareMap map = new SmallSquareMap(8);
-            Point startPoint = new Point(2, 2);
-            Point nextPoint = map.Next(startPoint, Direction.Up);
-            Console.WriteLine($"Po ruchu w górę punkt z {startPoint} to {nextPoint}");
-
-            Point diagonalPoint = map.NextDiagonal(startPoint, Direction.Left);
-            Console.WriteLine($"Po ukośnym ruchu w lewo do góry, punkt z {startPoint} to {diagonalPoint}");
-
-            Point outOfMapPoint = new Point(7, 7);
-            Point outOfMap = map.Next(outOfMapPoint, Direction.Up);
-            Console.WriteLine($"Po ruchu poza mapę punkt z {outOfMapPoint} to {outOfMap} (powinno pozostać bez ruchu)");
-        }
-        catch (ArgumentOutOfRangeException ex)
-        {
-            Console.WriteLine("Błąd: " + ex.Message);
-        }
-    }
-
-
-
 }

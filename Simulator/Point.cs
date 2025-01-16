@@ -1,39 +1,26 @@
 ﻿namespace Simulator;
+
 public readonly struct Point
 {
     public readonly int X, Y;
     public Point(int x, int y) => (X, Y) = (x, y);
     public override string ToString() => $"({X}, {Y})";
-    public Point Next(Direction direction)
+
+    public Point Next(Direction direction) => direction switch
     {
-        switch (direction)
-        {
-            case Direction.Up:
-                return new Point(X, Y + 1);
-            case Direction.Right:
-                return new Point(X + 1, Y);
-            case Direction.Down:
-                return new Point(X, Y - 1);
-            case Direction.Left:
-                return new Point(X - 1, Y);
-            default:
-                return this;
-        }
-    }
-    public Point NextDiagonal(Direction direction)
+        Direction.Up => new Point(X, Y + 1),
+        Direction.Down => new Point(X, Y - 1),
+        Direction.Left => new Point(X - 1, Y),
+        Direction.Right => new Point(X + 1, Y),
+        _ => this
+    };
+
+    public Point NextDiagonal(Direction direction) => direction switch
     {
-        switch (direction)
-        {
-            case Direction.Up:
-                return new Point(X + 1, Y + 1);
-            case Direction.Right:
-                return new Point(X + 1, Y - 1);
-            case Direction.Down:
-                return new Point(X - 1, Y - 1);
-            case Direction.Left:
-                return new Point(X - 1, Y + 1);
-            default:
-                return this;
-        }
-    }
+        Direction.Up => new Point(X + 1, Y + 1),
+        Direction.Down => new Point(X - 1, Y - 1),
+        Direction.Left => new Point(X - 1, Y + 1),
+        Direction.Right => new Point(X + 1, Y - 1),
+        _ => this
+    };
 }
