@@ -18,10 +18,10 @@ public class SimulationHistory
 
     private void Run()
     {
-        // Save the initial state
+     
         TurnLogs.Add(CaptureTurnLog());
 
-        // Simulate all turns and capture each state
+       
         while (!_simulation.Finished)
         {
             _simulation.Turn();
@@ -31,8 +31,10 @@ public class SimulationHistory
 
     private SimulationTurnLog CaptureTurnLog()
     {
-        // Create a dictionary representing the current map state
+      
+
         var symbols = new Dictionary<Point, char>();
+
 
         for (int y = 0; y < SizeY; y++)
         {
@@ -54,7 +56,8 @@ public class SimulationHistory
             }
         }
 
-        // Create and return the turn log
+        
+
         return new SimulationTurnLog
         {
             Mappable = _simulation.CurrentMappable.ToString(),
