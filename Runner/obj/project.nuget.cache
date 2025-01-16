@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mlqy3Edg7aI=",
+  "dgSpecHash": "j8r8QU0QNp0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Runner\\Runner.csproj",
+  "projectFilePath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Runner\\Runner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.net.test.sdk\\17.12.0\\microsoft.net.test.sdk.17.12.0.nupkg.sha512",

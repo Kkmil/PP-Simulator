@@ -17,9 +17,7 @@
             _mappablesAtPosition = new Dictionary<Point, List<IMappable>>();
         }
 
-        /// <summary>
-        /// Check if given point belongs to the map.
-        /// </summary>
+        
         public bool Exist(Point p)
         {
             var mapBounds = new Rectangle(0, 0, SizeX - 1, SizeY - 1);
@@ -66,9 +64,7 @@
             }
         }
 
-        /// <summary>
-        /// Move an IMappable object from one position to another on the map.
-        /// </summary>
+
         public virtual void Move(IMappable mappable, Point oldPosition, Point newPosition)
         {
             Remove(mappable, oldPosition);

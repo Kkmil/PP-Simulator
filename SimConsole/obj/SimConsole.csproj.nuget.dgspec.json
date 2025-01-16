@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\SimConsole\\SimConsole.csproj": {}
+    "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\SimConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\SimConsole\\SimConsole.csproj": {
+    "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\SimConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\SimConsole\\SimConsole.csproj",
+        "projectUniqueName": "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\SimConsole.csproj",
         "projectName": "SimConsole",
-        "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\SimConsole\\SimConsole.csproj",
+        "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\SimConsole.csproj",
         "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kamil\\Source\\Repos\\PP-Simulator\\SimConsole\\obj\\",
+        "outputPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj": {
-                "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj"
+              "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj": {
+                "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj"
               },
-              "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\TestSimulator.csproj": {
-                "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\TestSimulator.csproj"
+              "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\TestSimulator.csproj": {
+                "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\TestSimulator.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj": {
+    "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj",
+        "projectUniqueName": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj",
         "projectName": "Simulator",
-        "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj",
+        "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj",
         "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\obj\\",
+        "outputPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -133,14 +133,14 @@
         }
       }
     },
-    "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\TestSimulator.csproj": {
+    "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\TestSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\TestSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\TestSimulator.csproj",
         "projectName": "TestSimulator",
-        "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\TestSimulator.csproj",
+        "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\TestSimulator.csproj",
         "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\TestSimulator\\obj\\",
+        "outputPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\TestSimulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,8 +158,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj": {
-                "projectPath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\Simulator\\Simulator.csproj"
+              "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj": {
+                "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj"
               }
             }
           }

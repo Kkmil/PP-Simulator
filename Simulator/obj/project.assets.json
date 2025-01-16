@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kamil\\Source\\Repos\\PP-Simulator\\Simulator\\Simulator.csproj",
+      "projectUniqueName": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj",
       "projectName": "Simulator",
-      "projectPath": "C:\\Users\\Kamil\\Source\\Repos\\PP-Simulator\\Simulator\\Simulator.csproj",
+      "projectPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\Simulator.csproj",
       "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kamil\\Source\\Repos\\PP-Simulator\\Simulator\\obj\\",
+      "outputPath": "C:\\Users\\Kamil\\Documents\\Naprawa\\Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",

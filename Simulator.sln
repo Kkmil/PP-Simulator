@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator", "Simulator\Simulator.csproj", "{50D78E50-3EC5-446F-B071-BD71A46EC5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simulator", "Simulator\Simulator.csproj", "{50D78E50-3EC5-446F-B071-BD71A46EC5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "Runner\Runner.csproj", "{4AEB8285-F75F-49AA-8F18-E4258B311A30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Runner", "Runner\Runner.csproj", "{4AEB8285-F75F-49AA-8F18-E4258B311A30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSimulator", "TestSimulator\TestSimulator.csproj", "{3EC6A5E9-A00C-4215-8F56-BD58A590CAC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestSimulator", "TestSimulator\TestSimulator.csproj", "{3EC6A5E9-A00C-4215-8F56-BD58A590CAC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimConsole", "SimConsole\SimConsole.csproj", "{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimConsole", "SimConsole\SimConsole.csproj", "{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "First", "First\First.csproj", "{E9714C73-54C9-4EC4-8F0A-6EF8A883E3E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimWeb", "SimWeb\SimWeb.csproj", "{0AC78381-E041-4A36-A82F-B0B0A8CF36BB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EC6A5E9-A00C-4215-8F56-BD58A590CAC6} = {3EC6A5E9-A00C-4215-8F56-BD58A590CAC6}
+		{4AEB8285-F75F-49AA-8F18-E4258B311A30} = {4AEB8285-F75F-49AA-8F18-E4258B311A30}
+		{50D78E50-3EC5-446F-B071-BD71A46EC5C8} = {50D78E50-3EC5-446F-B071-BD71A46EC5C8}
+		{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD} = {B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +41,10 @@ Global
 		{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B07EA9BD-C0DA-42E6-B803-D658A21FE7CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9714C73-54C9-4EC4-8F0A-6EF8A883E3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9714C73-54C9-4EC4-8F0A-6EF8A883E3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9714C73-54C9-4EC4-8F0A-6EF8A883E3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9714C73-54C9-4EC4-8F0A-6EF8A883E3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC78381-E041-4A36-A82F-B0B0A8CF36BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC78381-E041-4A36-A82F-B0B0A8CF36BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC78381-E041-4A36-A82F-B0B0A8CF36BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC78381-E041-4A36-A82F-B0B0A8CF36BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uOdopMJOwH4=",
+  "dgSpecHash": "+/VZpWGcT7M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\source\\repos\\PP-Simulator\\SimConsole\\SimConsole.csproj",
+  "projectFilePath": "C:\\Users\\Kamil\\Documents\\Naprawa\\SimConsole\\SimConsole.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.net.test.sdk\\17.12.0\\microsoft.net.test.sdk.17.12.0.nupkg.sha512",
